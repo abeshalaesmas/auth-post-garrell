@@ -32,13 +32,14 @@
                 @foreach($posts as $post)
                     @if($post->user_id == Auth::id())
                         <div class="bg-gray-100 p-4 rounded-lg mb-4">
-                            <p>ID:{{$post->id}}</p>
+                            <p class="text-l text-gray-1000">ID:{{$post->id}}</p>
                             <p class="font-bold">{{ $post->user->name }}:</p>
                             <p class="text-lg">{{ $post->title }}</p>
                             <span class="block bg-gray-200 p-4 rounded-lg mb-4">
                                 <p>{{ $post->body }}</p>
                             </span>
                             <p class="text-sm text-gray-500">Published on: {{ $post->created_at->format('M d, Y H:i') }}</p>
+                            <p class="text-sm text-gray-500">User ID: {{ $post->user->id}}</p>
                             <div class="flex justify-end mt-2">
                                 <form action="{{route('editpost', ['id' => $post->id])}}" method="GET" class="mr-2">
                                     @csrf
